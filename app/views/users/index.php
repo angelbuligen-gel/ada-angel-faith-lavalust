@@ -24,7 +24,7 @@
             margin:auto;
         }
 
-        /* Header */
+      
         .header{
             display:flex;
             justify-content:space-between;
@@ -63,7 +63,7 @@
             opacity:.9;
         }
 
-        /* Main Card */
+        
         .table-card{
             background:#111827;
             border-radius:18px;
@@ -72,7 +72,7 @@
             box-shadow:0 12px 35px rgba(0,0,0,.4);
         }
 
-        /* Table */
+       
         table{
             width:100%;
             border-collapse:collapse;
@@ -108,7 +108,6 @@
             background:#172554;
         }
 
-        /* User Info */
         .user-info{
             display:flex;
             align-items:center;
@@ -157,7 +156,7 @@
             border:1px solid #2563eb;
         }
 
-        /* Button */
+       
         .btn-profile{
             display:inline-block;
             text-decoration:none;
@@ -176,7 +175,7 @@
             background:linear-gradient(135deg,#1d4ed8,#60a5fa);
         }
 
-        /* Footer */
+        
         .footer{
             padding:18px;
             text-align:center;
@@ -185,7 +184,7 @@
             background:#0f172a;
         }
 
-        /* Responsive */
+       
         @media(max-width:768px){
 
             body{
@@ -218,22 +217,16 @@
 
 <div class="container">
 
-    <!-- Header -->
+
     <div class="header">
 
         <div>
-            <h1>👥 User Management</h1>
-            <p>Manage and view registered student accounts.</p>
-        </div>
-
-        <div class="count-card">
-            <h2><?= count($users); ?></h2>
-            <span>Total Users</span>
+            <h1>User Management</h1>
         </div>
 
     </div>
 
-    <!-- Table -->
+    
     <div class="table-card">
 
         <table>
@@ -253,24 +246,15 @@
             <tbody>
 
                 <?php foreach($users as $user): ?>
-
                 <tr>
-
-                    <!-- ID -->
                     <td>
                         <span class="id-badge">
                             #<?= $user['id']; ?>
                         </span>
                     </td>
 
-                    <!-- Student -->
                     <td>
                         <div class="user-info">
-
-                            <div class="avatar">
-                                <?= strtoupper(substr($user['firstname'],0,1)); ?>
-                            </div>
-
                             <div>
                                 <div class="fullname">
                                     <?= $user['firstname']; ?>
@@ -280,20 +264,14 @@
 
                         </div>
                     </td>
-
-                    <!-- Email -->
                     <td class="email">
                         <?= $user['email']; ?>
                     </td>
-
-                    <!-- Username -->
                     <td>
                         <span class="username">
                             @<?= $user['username']; ?>
                         </span>
                     </td>
-
-                    <!-- Action -->
                     <td>
                         <a href="/users/profile/<?= $user['id']; ?>" class="btn-profile">
                             View Profile
@@ -307,11 +285,7 @@
             </tbody>
 
         </table>
-
-        <div class="footer">
-            User Management Module • LavaLust PHP MVC
-        </div>
-
+        
     </div>
 
 </div>

@@ -17,10 +17,7 @@ class UsersController extends Controller {
     }
 
 
-    public function profile(){
-        
-        $this->call->view('users/index');
-    }
+    
 
     public function index()
     {
@@ -33,5 +30,20 @@ class UsersController extends Controller {
         ]); 
         
     }
+
+    public function profile($id)
+    {
+        $user = $this->UsersModel->find($id);
+
+        if (!$user) {
+            die("User not found.");
+        }
+
+        $this->call->view('users/profile', [
+            'user' => $user
+        ]);
+    }
+
+    
 
 }
