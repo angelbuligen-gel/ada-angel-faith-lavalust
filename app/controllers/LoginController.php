@@ -14,7 +14,7 @@ class LoginController extends Controller {
 
     public function login()
     {
-        return $this->call->view('ProductViews/login');
+        return $this->call->view('ProductViews/Login');
     }
 
     public function authenticate()
