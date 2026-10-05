@@ -1,14 +1,45 @@
 <?php
+
 define('PREVENT_DIRECT_ACCESS', TRUE);
+
+/*
+ * ------------------------------------------------------
+ * CORS / OPTIONS PREFLIGHT
+ * ------------------------------------------------------
+ */
+
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+
+    $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+
+    if (!empty($origin)) {
+        header("Access-Control-Allow-Origin: $origin");
+        header("Access-Control-Allow-Credentials: true");
+    } else {
+        header("Access-Control-Allow-Origin: *");
+    }
+
+    header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, PATCH, OPTIONS");
+
+    header("Access-Control-Allow-Headers: Authorization, Content-Type, X-Requested-With, Accept, Origin, Access-Control-Request-Private-Network, X-RateLimit-*");
+
+    header("Access-Control-Allow-Private-Network: true");
+
+    header("Access-Control-Max-Age: 86400");
+
+    http_response_code(204);
+    exit;
+}
+
 /**
  * ------------------------------------------------------------------
  * LavaLust - an opensource lightweight PHP MVC Framework
  * ------------------------------------------------------------------
  *
  * MIT License
- * 
+ *
  * Copyright (c) 2020 Ronald M. Marasigan
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -42,10 +73,10 @@ define('PREVENT_DIRECT_ACCESS', TRUE);
  *
  * This variable must contain the name of your "scheme" directory.
  * Set the path if it is not in the same directory as this file.
- * 
+ *
  * NO TRAILING SLASH!
  */
-	$system_path 			= 'scheme';
+    $system_path = 'scheme';
 
 /*
  *---------------------------------------------------------------
@@ -57,23 +88,24 @@ define('PREVENT_DIRECT_ACCESS', TRUE);
  *
  * NO TRAILING SLASH!
  */
-	$application_folder 	= 'app';
+    $application_folder = 'app';
 
 /*
  *---------------------------------------------------------------
  * APPLICATION DIRECTORY NAME
  *---------------------------------------------------------------
+ *
  * This let you set up your public folder where css, js and other public,
  * files will be visible
  */
-	$public_folder			= 'public';
+    $public_folder = 'public';
 
 /*
  * ------------------------------------------------------
  * Define Application Constants
  * ------------------------------------------------------
  */
-define('ROOT_DIR',  dirname(__DIR__) . DIRECTORY_SEPARATOR);
+define('ROOT_DIR', dirname(__DIR__) . DIRECTORY_SEPARATOR);
 define('SYSTEM_DIR', ROOT_DIR . $system_path . DIRECTORY_SEPARATOR);
 define('APP_DIR', ROOT_DIR . $application_folder . DIRECTORY_SEPARATOR);
 define('PUBLIC_DIR', $public_folder);
