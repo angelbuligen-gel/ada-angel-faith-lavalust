@@ -64,3 +64,56 @@ $router->group(['middleware' => ['auth']], function($router){
     $router->get('/products/delete/{id}', 'ProductController::delete');
 
 });
+
+// Migration Routes
+$router->get('create-migration/{migration_class}', 'MigrationController::create_migration');
+$router->get('migrate', 'MigrationController::migrate');
+$router->get('rollback', 'MigrationController::rollback');
+$router->get('rollback-all', 'MigrationController::rollback_all');
+$router->get('refresh', 'MigrationController::refresh');
+$router->get('status', 'MigrationController::status');
+
+
+// act 6
+// $router->get('/products2', 'ProductControllers::index');
+// $router->get('/products2/create', 'ProductControllers::create');
+// $router->post('/products2/store', 'ProductControllers::store');
+
+// $router->get('/products2/edit/{id}', 'ProductControllers::edit');
+// $router->post('/products2/update/{id}', 'ProductControllers::update');
+// $router->get('/products2/delete/{id}', 'ProductControllers::delete');
+
+// $router->get('/api/products', 'ProductApiControllers::index');
+
+
+// // Product API CRUD
+// // Login page
+// $router->get('/products2/login', 'ProductControllers::login');
+
+// $router->get('/products2', 'ProductControllers::index');
+
+// // Login API
+// $router->post('/api/login', 'AuthApiControllers::login');
+
+
+// $router->get('/api/products', 'ProductApiControllers::index');
+
+// $router->get('/api/products/{id}', 'ProductApiControllers::show');
+
+// $router->post('/api/products', 'ProductApiControllers::store');
+
+// $router->put('/api/products/{id}', 'ProductApiControllers::update');
+
+// $router->patch('/api/products/{id}', 'ProductApiControllers::patch');
+
+// $router->delete('/api/products/{id}', 'ProductApiControllers::delete');
+
+
+$router->post('/api/login', 'AuthApiControllers::login');
+
+$router->get('/api/products', 'ProductApiControllers::index');
+$router->get('/api/products/{id}', 'ProductApiControllers::show');
+$router->post('/api/products', 'ProductApiControllers::store');
+$router->put('/api/products/{id}', 'ProductApiControllers::update');
+$router->patch('/api/products/{id}', 'ProductApiControllers::patch');
+$router->delete('/api/products/{id}', 'ProductApiControllers::delete');

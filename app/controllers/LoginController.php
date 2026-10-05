@@ -16,7 +16,7 @@ class LoginController extends Controller {
     {
         return $this->call->view('ProductViews/Login');
     }
-
+    
     public function authenticate()
     {
         $username = $_POST['username'];

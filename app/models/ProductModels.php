@@ -2,19 +2,14 @@
 defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
 /**
- * Model: ProductModel
+ * Model: ProductModels
  * 
  * Automatically generated via CLI.
  */
-class ProductModel extends Model {
-    protected $table = "product";
-    protected $primaryKey = "id";
-    protected $fillable = [
-        "product_name",
-        "description",
-        "price",
-        "quantity"
-    ];
+class ProductModels extends Model {
+    protected $table = 'products';
+    protected $primary_key = 'id';
+    protected $fillable = [];
     protected $guarded = ['id'];
 
     public function __construct()

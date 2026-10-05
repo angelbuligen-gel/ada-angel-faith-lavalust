@@ -15,6 +15,7 @@ class UsersController extends Controller {
         $this->call->model('UsersModel');
         
     }
+    
 
 
     
