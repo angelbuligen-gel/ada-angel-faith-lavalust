@@ -59,4 +59,22 @@ class AuthApiControllers extends Controller
             'data' => $tokens
         ], 200);
     }
+
+    public function home()
+    {
+        header('Content-Type: application/json');
+
+        echo json_encode([
+            'status' => true,
+            'message' => 'LavaLust API is running.',
+            'login_endpoint' => '/api/login',
+            'login_method' => 'POST',
+            'required_fields' => [
+                'username',
+                'password'
+            ]
+        ]);
+
+        exit;
+    }
 }

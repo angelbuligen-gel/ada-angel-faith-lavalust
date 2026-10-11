@@ -109,7 +109,7 @@ $router->get('status', 'MigrationController::status');
 // $router->delete('/api/products/{id}', 'ProductApiControllers::delete');
 
 
-$router->get('/', 'ProductApiControllers::login');
+$router->get('/', 'ProductApiControllers::home');
 
 $router->post('/api/login', 'AuthApiControllers::login');
 
